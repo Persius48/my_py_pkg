@@ -7,6 +7,7 @@ from example_interfaces.srv import SetBool
 class NumberCounter(Node): # MODIFY NAME
     def __init__(self):
         super().__init__("number_counter") # MODIFY NAME
+        self.declare_parameter=("testing_param",0)
         self.counter_ = 0
         self.publisher_ = self.create_publisher(Int64,"num_count",10)
         self.subscriber_ = self.create_subscription(Int64, "num_channel", self.callback_robot_news, 10)
